@@ -15,10 +15,9 @@ public class FactureController {
     @Autowired
     FactureService factureService;
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public Facture save(@RequestBody Facture fa) throws Exception {
-        Facture Response = (Facture) factureService.add(fa);
-        return Response;
+    @RequestMapping(value = "/add")
+    public Facture save(@RequestBody Facture fa)  {
+        return factureService.add(fa) ;
     }
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public List<Facture> RetrieveAll() {
@@ -30,25 +29,15 @@ public class FactureController {
         return null;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
-        try {
+
             factureService.delete(id);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+
 
     }
-    @GetMapping("/{idFournisseur}")
-    public List<Facture> getFacturesByFournisseur(@PathVariable(value = "idFournisseur") Long idFournisseur) {
-        return factureService.getFacturesByFournisseur(idFournisseur);
-    }
 
-    @PostMapping("/add")
-    public Facture add(@RequestBody Facture s) {
 
-        return factureService.add(s);
-    }
 
 
     @GetMapping("/{id}")
@@ -57,11 +46,7 @@ public class FactureController {
         return factureService.findById(id);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteFacture(@PathVariable Long id) {
 
-        factureService.delete(id);
-    }
 
     @PutMapping
     public Facture updateStock(@RequestBody Facture s) {

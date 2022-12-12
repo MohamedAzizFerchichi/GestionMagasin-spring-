@@ -22,11 +22,7 @@ public class DetailFactureController {
         return detailFactureService.retrieveAll();
     }
 
-//    @PostMapping("/add")
-//    public DetailFacture addDetailFacture(@RequestBody DetailFacture detailFacture) {
-//
-//        return detailFactureService.add(detailFacture);
-//    }
+
     @PostMapping("/add/{idFacture}")
     public DetailFacture addDetail(@PathVariable long idFacture,@RequestBody DetailFacture detailFacture){
         return  detailFactureService.addDetail(idFacture,detailFacture);

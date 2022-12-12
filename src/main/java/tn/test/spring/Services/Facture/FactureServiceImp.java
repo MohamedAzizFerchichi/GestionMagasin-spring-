@@ -29,14 +29,7 @@ public class FactureServiceImp  implements FactureService {
         return factureRepositrory.getFacturesByFournisseur(fournisseur);
     }
 
-    @Override
-    @Transactional
-    public Facture addFacture(Facture f, long idFournisseur) {
-        Fournisseur fournisseur = fournisseurServiceImp.findById(idFournisseur);
-        f.setFournisseur(fournisseur);
-        this.add(f);
-        return f;
-    }
+
 
     @Override
     public List<Facture> retrieveAll() {
