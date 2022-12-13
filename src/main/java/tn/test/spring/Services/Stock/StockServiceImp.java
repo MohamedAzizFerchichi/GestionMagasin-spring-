@@ -7,7 +7,7 @@ import org.yaml.snakeyaml.events.Event;
 import tn.test.spring.Entity.Produit;
 import tn.test.spring.Entity.Stock;
 import tn.test.spring.Repository.StockRepository;
-import tn.test.spring.Services.GserviceImp;
+import tn.test.spring.Services.GServiceImp;
 import tn.test.spring.Services.Produit.ProduitServiceImp;
 
 import java.util.ArrayList;
@@ -55,7 +55,7 @@ public class StockServiceImp implements StockService {
 
     @Override
     public List<Stock> getStockByProduit() {
-        List<Produit> prods = produitServiceImp.getAllProduits();
+        List<Produit> prods = produitServiceImp.retrieveAll();
         List<Stock> stocks = new ArrayList<>();
         for (Produit p : prods) {
             if (p.getStock() != null) {
