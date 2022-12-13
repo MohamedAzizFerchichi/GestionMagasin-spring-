@@ -1,19 +1,29 @@
 package tn.test.spring.Services.Stock;
 
+import tn.test.spring.Entity.Produit;
 import tn.test.spring.Entity.Stock;
 
 import java.util.List;
 
 public interface StockService {
+    void addStock(Stock stock);
+    void updateStock(Stock stock);
+    void deleteStock(Integer id);
+    Stock getStock(Integer id);
+
     List<Stock> retrieveAllStocks();
 
-    Stock addStock(Stock s);
+    List<Stock> getStockByProduit();
 
-    Stock updateStock(Stock s);
+    String retrieveStatusStock() ;
 
-    Stock retrieveStock(Long id);
 
-    void removeStock(Long id);
+    List<Produit> getProduitByStock(Integer idStock);
 
-    String retrieveStatusStock();
+    List<Stock> getStockByFilter();
+
+    List<Stock> getStockByFilterInf();
+
+    List<Stock> getStockByFilter0();
+
 }
