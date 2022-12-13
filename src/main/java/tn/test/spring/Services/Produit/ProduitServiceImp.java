@@ -13,9 +13,9 @@ public class ProduitServiceImp extends GServiceImp<Produit, Long> implements Pro
     StockService stockServiceImp;
 
     @Override
-    public void assignProduitToStock(Long idProduit, Long idStock) {
+    public void assignProduitToStock(Long idProduit, int idStock) {
         Produit produit = this.findById(idProduit);
-        Stock stock = stockServiceImp.retrieveStock(idStock);
+        Stock stock = stockServiceImp.getStock(idStock);
         produit.setStock(stock);
         this.update(produit);
     }

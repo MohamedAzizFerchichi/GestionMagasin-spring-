@@ -38,7 +38,7 @@ public class ProduitController {
     }
 
     @GetMapping("/{idProduit}/{idStock}")
-    public Produit addProduitToStock(@PathVariable(value = "idProduit") long idProduit, @PathVariable(value = "idStock") long idStock) {
+    public Produit addProduitToStock(@PathVariable(value = "idProduit") long idProduit, @PathVariable(value = "idStock") int idStock) {
         produitServiceImp.assignProduitToStock(idProduit, idStock);
         return produitServiceImp.findById(idProduit);
     }
